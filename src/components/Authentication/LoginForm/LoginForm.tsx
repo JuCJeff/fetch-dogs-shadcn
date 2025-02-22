@@ -42,8 +42,9 @@ const LoginForm = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-4 rounded-md px-8 py-4 bg-primary"
+          className="space-y-4 rounded-md px-8 py-4 bg-primary w-full md:w-[300px]"
         >
+          <h1>Login</h1>
           <FormField
             control={form.control}
             name="name"
