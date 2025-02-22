@@ -29,3 +29,9 @@ export interface Coordinates {
   lat: number;
   lon: number;
 }
+
+export interface AuthContextType {
+  isAuthenticated: boolean;
+  login: (name: string, email: string) => Promise<void>;
+  logout: () => Promise<void>;
+}
