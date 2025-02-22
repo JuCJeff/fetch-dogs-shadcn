@@ -6,7 +6,7 @@ import {
 } from "./apiConfig";
 import { fetchApi } from "../utils/apiUtils";
 
-import { Dog } from "../types";
+import { Dog } from "@/types";
 
 export const getDogBreeds = async () => {
   const data = await fetchApi(DOGS_BREEDS_ENDPOINT, {

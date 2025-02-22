@@ -8,7 +8,7 @@ export default function SearchPage() {
         <h1>Search Page</h1>
         <Tabs
           defaultValue="all-dogs"
-          className="py-4 w-full flex align-center md:w-[400px]"
+          className="py-4 w-full flex items-center md:w-[400px]"
         >
           <TabsList>
             <TabsTrigger value="all-dogs">All Dogs 🐕</TabsTrigger>

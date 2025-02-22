@@ -2,7 +2,7 @@ import { LOCATIONS_SEARCH_ENDPOINT } from "./apiConfig";
 
 import { fetchApi } from "../utils/apiUtils";
 
-import type { Location } from "../types";
+import type { Location } from "@/types";
 
 type GetLocationsProps = {
   city?: string;
