@@ -1,0 +1,7 @@
+@media (max-width: 1024px) {
+  .search-options {
+    flex-direction: column;
+    gap: 1em;
+    align-items: stretch;
+  }
+}

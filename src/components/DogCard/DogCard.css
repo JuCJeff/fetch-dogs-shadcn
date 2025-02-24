@@ -1,0 +1,23 @@
+.dog-card {
+  border: 2px solid var(--fetch-yellow);
+  border-radius: 1em;
+  padding: 12px;
+  margin: 0.5em 1em;
+  text-align: center;
+}
+
+.dog-card:hover {
+  filter: drop-shadow(0 0 1em var(--fetch-yellow));
+}
+
+.favorite-btn {
+  margin-top: 0.5em;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.favorite-btn.favorited {
+  background: gold;
+  color: black;
+  font-weight: bold;
+}

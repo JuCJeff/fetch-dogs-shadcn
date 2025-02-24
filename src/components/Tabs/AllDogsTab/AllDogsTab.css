@@ -1,0 +1,27 @@
+.dog-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  justify-content: center;
+  margin: 0 1em; /* Centers the grid */
+}
+
+.search-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+/* Mobile: 1 dog per row */
+@media (max-width: 768px) {
+  .dog-list {
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+
+  .search-options {
+    flex-direction: column;
+    gap: 1em;
+  }
+}
