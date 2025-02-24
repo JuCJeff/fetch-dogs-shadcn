@@ -47,7 +47,9 @@ const LocationFilter = ({
           <SelectGroup>
             <SelectLabel>States</SelectLabel>
             {US_STATES.map((state) => (
-              <SelectItem value={state}>{state}</SelectItem>
+              <SelectItem key={state} value={state}>
+                {state}
+              </SelectItem>
             ))}
           </SelectGroup>
         </SelectContent>
@@ -61,7 +63,9 @@ const LocationFilter = ({
           <SelectGroup>
             <SelectLabel>Radius</SelectLabel>
             {RADIUS_OPTIONS.map((radius) => (
-              <SelectItem value={radius.toString()}>{radius} miles</SelectItem>
+              <SelectItem key={radius.toString()} value={radius.toString()}>
+                {radius} miles
+              </SelectItem>
             ))}
           </SelectGroup>
         </SelectContent>

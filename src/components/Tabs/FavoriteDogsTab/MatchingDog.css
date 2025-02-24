@@ -1,9 +1,0 @@
-.matching-dog {
-  display: flex;
-  justify-content: center;
-}
-
-.matching-dog .dog-card {
-  width: 20em;
-  height: auto;
-}

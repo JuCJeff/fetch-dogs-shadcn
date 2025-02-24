@@ -52,11 +52,20 @@ const FavoriteDogsTab = ({ onFavoriteClick }: FavoriteDogsTabProps) => {
       {favoriteDogs.length === 0 ? (
         <p>No favorites yet! ❤️</p>
       ) : (
-        <>
+        <div className="flex flex-col items-center">
+          {matchingDog && (
+            <div className="justify-center w-90">
+              <h3>
+                <strong>Matched Dog</strong>
+              </h3>
+              <MatchingDog dog={matchingDog} />
+            </div>
+          )}
+
           <Button className="my-2" onClick={handleDogMatch}>
             Get Matching Dog
           </Button>
-          <div className="dog-list">
+          <div className="w-full grid grid-cols-1 mt-2 md:grid-cols-5 md:w-screen">
             {favoriteDogs.map((dog) => (
               <DogCard
                 key={dog.id}
@@ -66,14 +75,7 @@ const FavoriteDogsTab = ({ onFavoriteClick }: FavoriteDogsTabProps) => {
               />
             ))}
           </div>
-
-          {matchingDog && (
-            <div className="matching-dog-container">
-              <h3>Matched Dog</h3>
-              <MatchingDog dog={matchingDog} />
-            </div>
-          )}
-        </>
+        </div>
       )}
     </div>
   );

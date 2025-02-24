@@ -38,86 +38,90 @@ const PaginationComponent = ({
   }
 
   return (
-    <Pagination>
-      <PaginationContent>
-        {/* Previous Button */}
-        {currentPage === 1 ? (
-          <></>
-        ) : (
-          <PaginationItem>
-            <PaginationPrevious
-              href="#"
-              onClick={() => onPageChange(currentPage - 1)}
-            />
-          </PaginationItem>
-        )}
+    <div className="flex md:w-full">
+      <Pagination>
+        <PaginationContent>
+          {/* Previous Button */}
+          {currentPage === 1 ? (
+            <></>
+          ) : (
+            <PaginationItem>
+              <PaginationPrevious
+                href="#"
+                onClick={() => onPageChange(currentPage - 1)}
+              />
+            </PaginationItem>
+          )}
 
-        {/* First Pages */}
-        {firstPages.map((page) => (
-          <PaginationItem key={page}>
-            <PaginationLink
-              href="#"
-              onClick={() => onPageChange(page)}
-              isActive={page === currentPage}
-            >
-              {page}
-            </PaginationLink>
-          </PaginationItem>
-        ))}
+          {/* First Pages */}
+          {firstPages.map((page) => (
+            <PaginationItem key={page}>
+              <PaginationLink
+                href="#"
+                onClick={() => onPageChange(page)}
+                isActive={page === currentPage}
+              >
+                {page}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
 
-        {/* Ellipsis if needed */}
-        {middleStart > 4 && (
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-        )}
+          {/* Ellipsis if needed */}
+          {middleStart > 4 && (
+            <PaginationItem>
+              <PaginationEllipsis />
+            </PaginationItem>
+          )}
 
-        {/* Middle Pages */}
-        {middlePages.map((page) => (
-          <PaginationItem key={page}>
-            <PaginationLink
-              href="#"
-              onClick={() => onPageChange(page)}
-              isActive={page === currentPage}
-            >
-              {page}
-            </PaginationLink>
-          </PaginationItem>
-        ))}
+          {/* Middle Pages */}
+          <div className="hidden md:flex">
+            {middlePages.map((page) => (
+              <PaginationItem key={page}>
+                <PaginationLink
+                  href="#"
+                  onClick={() => onPageChange(page)}
+                  isActive={page === currentPage}
+                >
+                  {page}
+                </PaginationLink>
+              </PaginationItem>
+            ))}
+          </div>
 
-        {/* Ellipsis if needed */}
-        {middleEnd < totalPages - 3 && (
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-        )}
+          {/* Ellipsis if needed */}
+          {middleEnd < totalPages - 3 && (
+            <PaginationItem>
+              <PaginationEllipsis />
+            </PaginationItem>
+          )}
 
-        {/* Last Pages */}
-        {lastPages.map((page) => (
-          <PaginationItem key={page}>
-            <PaginationLink
-              href="#"
-              onClick={() => onPageChange(page)}
-              isActive={page === currentPage}
-            >
-              {page}
-            </PaginationLink>
-          </PaginationItem>
-        ))}
+          {/* Last Pages */}
+          {lastPages.map((page) => (
+            <PaginationItem key={page}>
+              <PaginationLink
+                href="#"
+                onClick={() => onPageChange(page)}
+                isActive={page === currentPage}
+              >
+                {page}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
 
-        {/* Next Button */}
-        {currentPage === totalPages ? (
-          <></>
-        ) : (
-          <PaginationItem>
-            <PaginationNext
-              href="#"
-              onClick={() => onPageChange(currentPage + 1)}
-            />
-          </PaginationItem>
-        )}
-      </PaginationContent>
-    </Pagination>
+          {/* Next Button */}
+          {currentPage === totalPages ? (
+            <></>
+          ) : (
+            <PaginationItem>
+              <PaginationNext
+                href="#"
+                onClick={() => onPageChange(currentPage + 1)}
+              />
+            </PaginationItem>
+          )}
+        </PaginationContent>
+      </Pagination>
+    </div>
   );
 };
 
