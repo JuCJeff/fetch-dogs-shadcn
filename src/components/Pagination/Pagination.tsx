@@ -31,7 +31,8 @@ const PaginationComponent = ({
     middleStart = Math.max(4, middleEnd - middleRange + 1);
   }
 
-  const middlePages = [];
+  const middlePages: number[] = [];
+
   for (let i = middleStart; i <= middleEnd; i++) {
     middlePages.push(i);
   }
@@ -40,12 +41,16 @@ const PaginationComponent = ({
     <Pagination>
       <PaginationContent>
         {/* Previous Button */}
-        <PaginationItem>
-          <PaginationPrevious
-            href="#"
-            onClick={() => onPageChange(currentPage - 1)}
-          />
-        </PaginationItem>
+        {currentPage === 1 ? (
+          <></>
+        ) : (
+          <PaginationItem>
+            <PaginationPrevious
+              href="#"
+              onClick={() => onPageChange(currentPage - 1)}
+            />
+          </PaginationItem>
+        )}
 
         {/* First Pages */}
         {firstPages.map((page) => (
@@ -101,12 +106,16 @@ const PaginationComponent = ({
         ))}
 
         {/* Next Button */}
-        <PaginationItem>
-          <PaginationNext
-            href="#"
-            onClick={() => onPageChange(currentPage + 1)}
-          />
-        </PaginationItem>
+        {currentPage === totalPages ? (
+          <></>
+        ) : (
+          <PaginationItem>
+            <PaginationNext
+              href="#"
+              onClick={() => onPageChange(currentPage + 1)}
+            />
+          </PaginationItem>
+        )}
       </PaginationContent>
     </Pagination>
   );
