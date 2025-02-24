@@ -38,7 +38,7 @@ const PaginationComponent = ({
   }
 
   return (
-    <div className="flex md:w-full">
+    <div className="flex mt-2 md:w-full">
       <Pagination>
         <PaginationContent>
           {/* Previous Button */}

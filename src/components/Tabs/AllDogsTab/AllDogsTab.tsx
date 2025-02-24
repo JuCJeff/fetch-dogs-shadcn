@@ -67,6 +67,7 @@ const AllDogsTab = () => {
     const loadDogs = async () => {
       setDogs([]);
       setLoading(true);
+
       try {
         const { dogs, total } = await fetchDogs({
           from: (currentPage - 1) * PAGE_SIZE,
@@ -136,6 +137,12 @@ const AllDogsTab = () => {
           />
         ))}
       </div>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={Math.ceil(totalDogs / PAGE_SIZE)}
+        onPageChange={setCurrentPage}
+      />
     </>
   );
 };
