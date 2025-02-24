@@ -24,9 +24,15 @@ const SORT_OPTIONS = [
   { param: "age:desc", name: "Oldest to Youngest" },
 ];
 
-const SortOptions = ({ onSortOptionChange }: SortOptionProps) => {
+const SortOptions = ({
+  selectedSortOption,
+  onSortOptionChange,
+}: SortOptionProps) => {
   return (
-    <Select onValueChange={(value) => onSortOptionChange(value as SortOption)}>
+    <Select
+      value={selectedSortOption}
+      onValueChange={(value) => onSortOptionChange(value as SortOption)}
+    >
       <SelectTrigger className="w-[240px]">
         <SelectValue placeholder="Sort Options" />
       </SelectTrigger>
