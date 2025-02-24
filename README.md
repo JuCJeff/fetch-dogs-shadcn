@@ -1,6 +1,6 @@
 # 🐶 Shelter Dog Finder
 
-This is a React application built with Vite and Yarn that helps users search for shelter dogs based on their location and preferences. Users can enter a city, state, and search radius to find adoptable dogs nearby. The app also provides filtering options (by breed, etc.), allows users to favorite dogs, and features a **Generate Match** button to help users find their perfect dog.
+This is a React application built with Vite and pnpm that helps users search for shelter dogs based on their location and preferences. Users can enter a city, state, and search radius to find adoptable dogs nearby. The app also provides filtering options (by breed, etc.), allows users to favorite dogs, and features a **Generate Match** button to help users find their perfect dog.
 
 ## 🚀 Features
 
@@ -14,7 +14,7 @@ This is a React application built with Vite and Yarn that helps users search for
 ### Prerequisites
 
 - **Node.js** (LTS recommended)
-- **Yarn** (Package manager)
+- **Pnpm** (Package manager)
 - **Vite** (Bundler - already configured)
 
 ### Installation Steps
@@ -29,13 +29,13 @@ cd shelter-dog-finder
 2. **Install dependencies**
 
 ```sh
-yarn install
+pnpm install
 ```
 
 3. **Start the development server**
 
 ```sh
-yarn dev
+pnpm dev
 ```
 
 4. Open in your browser
