@@ -73,7 +73,8 @@ const AllDogsTab = () => {
           from: (currentPage - 1) * PAGE_SIZE,
           breeds: selectedBreeds || undefined,
           sort: selectedSortOption,
-          zipCodes: zipCodes.length !== 0 ? zipCodes : undefined,
+          // Limiting zipCodes to 100 to avoid parameter error, could improve in the future based on backend setups
+          zipCodes: zipCodes.length !== 0 ? zipCodes.slice(0, 99) : undefined,
         });
 
         setDogs(dogs);
