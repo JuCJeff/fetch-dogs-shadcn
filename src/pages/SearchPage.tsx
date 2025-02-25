@@ -1,5 +1,5 @@
-import { LogoutButton } from "@/components/Authentication/LogoutButton";
-import { Tabs } from "@/components/Tabs";
+import { LogoutButton } from "../components/Authentication/LogoutButton";
+import { Tabs } from "../components/Tabs";
 
 export default function SearchPage() {
   return (
