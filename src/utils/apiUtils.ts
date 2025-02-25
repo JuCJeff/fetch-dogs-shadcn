@@ -14,6 +14,11 @@ export const fetchApi = async <T>(
   try {
     const response = await fetch(url, options);
     if (!response.ok) {
+      if (response.status === 401) {
+        // Redirect to the login page on 401 Unauthorized error
+        window.location.href = "/fetch-dogs-shadcn/";
+        throw new ApiError(`Unauthorized: ${response.statusText}`, 401);
+      }
       throw new ApiError(
         `API request failed: ${response.statusText}`,
         response.status
