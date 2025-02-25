@@ -67,6 +67,7 @@ pnpm dev
 - User authentication to save favorite dogs persistently.
 - Improved UI/UX with animations and better responsiveness.
 - More advanced matching algorithm for dog recommendations.
+- Better Zip Code Support for more accurate radius searches.
 
 ## 📜 License
 
