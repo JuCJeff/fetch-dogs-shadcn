@@ -40,14 +40,14 @@ const BreedFilter = ({ selectedBreed, onBreedSelect }: BreedFilterProps) => {
       value={selectedBreed.length > 0 ? selectedBreed[0] : ""}
       onValueChange={(value) => handleBreedChange(value)}
     >
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[240px] md:w-full">
         <SelectValue placeholder="Breed filter" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
           <SelectLabel>Breeds</SelectLabel>
           {breeds.map((breed) => (
-            <SelectItem className="flex-wrap" value={breed}>{breed}</SelectItem>
+            <SelectItem className="flex-wrap" key={breed} value={breed}>{breed}</SelectItem>
           ))}
         </SelectGroup>
       </SelectContent>

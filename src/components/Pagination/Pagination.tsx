@@ -74,8 +74,28 @@ const PaginationComponent = ({
           )}
 
           {/* Middle Pages */}
-          <div className="hidden md:flex">
-            {middlePages.map((page) => (
+          {middlePages.map((page) => (
+            <PaginationItem key={page}>
+              <PaginationLink
+                href="#"
+                onClick={() => onPageChange(page)}
+                isActive={page === currentPage}
+              >
+                {page}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
+
+          {/* Ellipsis if needed */}
+          {middleEnd < totalPages - 3 && (
+            <PaginationItem>
+              <PaginationEllipsis />
+            </PaginationItem>
+          )}
+
+          {/* Last Pages */}
+          <div className="hidden md:flex md:gap-1">
+            {lastPages.map((page) => (
               <PaginationItem key={page}>
                 <PaginationLink
                   href="#"
@@ -87,26 +107,6 @@ const PaginationComponent = ({
               </PaginationItem>
             ))}
           </div>
-
-          {/* Ellipsis if needed */}
-          {middleEnd < totalPages - 3 && (
-            <PaginationItem>
-              <PaginationEllipsis />
-            </PaginationItem>
-          )}
-
-          {/* Last Pages */}
-          {lastPages.map((page) => (
-            <PaginationItem key={page}>
-              <PaginationLink
-                href="#"
-                onClick={() => onPageChange(page)}
-                isActive={page === currentPage}
-              >
-                {page}
-              </PaginationLink>
-            </PaginationItem>
-          ))}
 
           {/* Next Button */}
           {currentPage === totalPages ? (

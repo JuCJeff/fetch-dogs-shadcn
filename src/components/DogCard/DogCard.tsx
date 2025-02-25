@@ -10,7 +10,7 @@ interface DogCardProps {
 
 const DogCard = ({ dog, onFavoriteClick, isFavorite }: DogCardProps) => {
   return (
-    <div className="dog-card border-2 rounded-xl border-yellow-600 p-2 mx-2 my-1 text-center">
+    <div className="dog-card border-2 rounded-xl border-yellow-600 p-2 mx-2 my-1 text-center hover:scale-101">
       <img
         src={dog.img}
         alt={dog.name}

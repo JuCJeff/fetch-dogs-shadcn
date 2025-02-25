@@ -32,17 +32,17 @@ const LocationFilter = ({
   onFilter,
 }: LocationFilterProps) => {
   return (
-    <div className="flex flex-col justify-center items-center my-1 gap-1 md:flex-row md:gap-0">
+    <div className="flex flex-col justify-center items-center my-1 gap-1 md:flex-row md:gap-1">
       <Input
         type="string"
         value={city || ""}
         placeholder="City"
         onChange={(e) => setCity(e.target.value)}
-        className="w-[120px] md:w-[240px]"
+        className="w-[240px]"
       />
 
       <Select value={state || ""} onValueChange={(value) => setState(value)}>
-        <SelectTrigger className="w-[120px]">
+        <SelectTrigger className="w-[240px]">
           <SelectValue placeholder="State" />
         </SelectTrigger>
         <SelectContent>
@@ -61,7 +61,7 @@ const LocationFilter = ({
         value={radius || ""}
         onValueChange={(value) => setRadius(value || undefined)}
       >
-        <SelectTrigger className="w-[120px]">
+        <SelectTrigger className="w-[240px]">
           <SelectValue placeholder="Radius" />
         </SelectTrigger>
         <SelectContent>

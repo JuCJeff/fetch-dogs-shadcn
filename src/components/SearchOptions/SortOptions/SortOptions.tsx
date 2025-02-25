@@ -40,7 +40,9 @@ const SortOptions = ({
         <SelectGroup>
           <SelectLabel>Sort Options</SelectLabel>
           {SORT_OPTIONS.map(({ param, name }) => (
-            <SelectItem value={param}>{name}</SelectItem>
+            <SelectItem key={param} value={param}>
+              {name}
+            </SelectItem>
           ))}
         </SelectGroup>
       </SelectContent>
