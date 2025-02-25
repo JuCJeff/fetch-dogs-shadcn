@@ -42,7 +42,12 @@ export const fetchDogs = async ({
   }
 
   if (zipCodes.length !== 0) {
-    zipCodes.forEach((zip) => params.append("zipCodes", zip));
+    // Limiting zipCodes to 100 to avoid parameter error, could improve in the future based on backend setups
+    if (zipCodes.length > 100) {
+      zipCodes.slice(0, 99).forEach((zip) => params.append("zipCodes", zip));
+    } else {
+      zipCodes.forEach((zip) => params.append("zipCodes", zip));
+    }
   }
 
   const url = `${DOGS_SEARCH_ENDPOINT}?${params.toString()}`;

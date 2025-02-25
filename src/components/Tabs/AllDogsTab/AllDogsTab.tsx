@@ -73,8 +73,7 @@ const AllDogsTab = () => {
           from: (currentPage - 1) * PAGE_SIZE,
           breeds: selectedBreeds || undefined,
           sort: selectedSortOption,
-          // Limiting zipCodes to 100 to avoid parameter error, could improve in the future based on backend setups
-          zipCodes: zipCodes.length !== 0 ? zipCodes.slice(0, 99) : undefined,
+          zipCodes: zipCodes.length !== 0 ? zipCodes : undefined,
         });
 
         setDogs(dogs);
@@ -103,7 +102,6 @@ const AllDogsTab = () => {
     setCurrentPage(1);
   };
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   return (
@@ -122,28 +120,34 @@ const AllDogsTab = () => {
         onApplyFilter={applyLocationFilter}
       />
 
-      <Pagination
-        currentPage={currentPage}
-        totalPages={Math.ceil(totalDogs / PAGE_SIZE)}
-        onPageChange={setCurrentPage}
-      />
-
-      <div className="w-full grid grid-cols-1 mt-2 justify-center items-center md:grid-cols-5">
-        {dogs.map((dog) => (
-          <DogCard
-            key={dog.id}
-            dog={dog}
-            isFavorite={favorites.has(dog.id)}
-            onFavoriteClick={toggleFavorite}
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(totalDogs / PAGE_SIZE)}
+            onPageChange={setCurrentPage}
           />
-        ))}
-      </div>
 
-      <Pagination
-        currentPage={currentPage}
-        totalPages={Math.ceil(totalDogs / PAGE_SIZE)}
-        onPageChange={setCurrentPage}
-      />
+          <div className="w-full grid grid-cols-1 mt-2 justify-center items-between md:grid-cols-5">
+            {dogs.map((dog) => (
+              <DogCard
+                key={dog.id}
+                dog={dog}
+                isFavorite={favorites.has(dog.id)}
+                onFavoriteClick={toggleFavorite}
+              />
+            ))}
+          </div>
+
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(totalDogs / PAGE_SIZE)}
+            onPageChange={setCurrentPage}
+          />
+        </>
+      )}
     </>
   );
 };
