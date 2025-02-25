@@ -40,6 +40,10 @@ const AllDogsTab = () => {
 
   const { favorites, toggleFavorite } = useFavorites();
 
+  const resetPage = () => {
+    setCurrentPage(1); // Reset to the first page
+  };
+
   useEffect(() => {
     if (!appliedCity && !appliedState && !appliedRadius) return;
 
@@ -99,7 +103,7 @@ const AllDogsTab = () => {
       setAppliedState(state);
       setAppliedRadius(radius);
     }
-    setCurrentPage(1);
+    resetPage();
   };
 
   if (error) return <p>{error}</p>;
@@ -118,6 +122,7 @@ const AllDogsTab = () => {
         radius={radius}
         setRadius={setRadius}
         onApplyFilter={applyLocationFilter}
+        resetPage={resetPage}
       />
 
       {loading ? (

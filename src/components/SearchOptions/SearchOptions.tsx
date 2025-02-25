@@ -18,6 +18,7 @@ interface SearchOptionsProps {
   radius: string | undefined;
   setRadius: (radius: string | undefined) => void;
   onApplyFilter: (reset?: boolean) => void;
+  resetPage: () => void;
 }
 
 const SearchOptions = ({
@@ -32,6 +33,7 @@ const SearchOptions = ({
   radius,
   setRadius,
   onApplyFilter,
+  resetPage,
 }: SearchOptionsProps) => {
   return (
     <div className="my-2 justify-center items-center gap-4 flex-row md:flex">
@@ -51,10 +53,12 @@ const SearchOptions = ({
         <BreedFilter
           selectedBreed={selectedBreeds}
           onBreedSelect={onBreedSelect}
+          resetPage={resetPage}
         />
         <SortOptions
           selectedSortOption={selectedSortOption}
           onSortOptionChange={onSortOptionChange}
+          resetPage={resetPage}
         />
       </div>
 
@@ -66,6 +70,7 @@ const SearchOptions = ({
           setState("");
           setRadius(undefined);
           onApplyFilter(true);
+          resetPage();
         }}
       >
         Reset Filters

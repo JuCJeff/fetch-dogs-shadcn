@@ -13,6 +13,7 @@ import type { SortOption } from "@/types";
 interface SortOptionProps {
   selectedSortOption: string;
   onSortOptionChange: (sort: SortOption) => void;
+  resetPage: () => void;
 }
 
 const SORT_OPTIONS = [
@@ -27,11 +28,15 @@ const SORT_OPTIONS = [
 const SortOptions = ({
   selectedSortOption,
   onSortOptionChange,
+  resetPage,
 }: SortOptionProps) => {
   return (
     <Select
       value={selectedSortOption}
-      onValueChange={(value) => onSortOptionChange(value as SortOption)}
+      onValueChange={(value) => {
+        onSortOptionChange(value as SortOption);
+        resetPage();
+      }}
     >
       <SelectTrigger className="w-[240px]">
         <SelectValue placeholder="Sort Options" />

@@ -15,9 +15,14 @@ import { getDogBreeds } from "@/services";
 interface BreedFilterProps {
   selectedBreed: string[];
   onBreedSelect: (SelectedBreed: string[]) => void;
+  resetPage: () => void;
 }
 
-const BreedFilter = ({ selectedBreed, onBreedSelect }: BreedFilterProps) => {
+const BreedFilter = ({
+  selectedBreed,
+  onBreedSelect,
+  resetPage,
+}: BreedFilterProps) => {
   const [breeds, setBreeds] = useState<string[]>([]);
 
   useEffect(() => {
@@ -38,7 +43,10 @@ const BreedFilter = ({ selectedBreed, onBreedSelect }: BreedFilterProps) => {
   return (
     <Select
       value={selectedBreed.length > 0 ? selectedBreed[0] : ""}
-      onValueChange={(value) => handleBreedChange(value)}
+      onValueChange={(value) => {
+        handleBreedChange(value);
+        resetPage();
+      }}
     >
       <SelectTrigger className="w-[240px] md:w-full">
         <SelectValue placeholder="Breed filter" />
@@ -47,7 +55,9 @@ const BreedFilter = ({ selectedBreed, onBreedSelect }: BreedFilterProps) => {
         <SelectGroup>
           <SelectLabel>Breeds</SelectLabel>
           {breeds.map((breed) => (
-            <SelectItem className="flex-wrap" key={breed} value={breed}>{breed}</SelectItem>
+            <SelectItem className="flex-wrap" key={breed} value={breed}>
+              {breed}
+            </SelectItem>
           ))}
         </SelectGroup>
       </SelectContent>
