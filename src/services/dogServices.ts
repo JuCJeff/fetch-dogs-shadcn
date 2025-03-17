@@ -24,6 +24,8 @@ interface FetchDogsParams {
   sort?: string;
 }
 
+const dogsMap = new Map();
+
 export const fetchDogs = async ({
   size = 25,
   from = 0,
@@ -52,6 +54,14 @@ export const fetchDogs = async ({
 
   const url = `${DOGS_SEARCH_ENDPOINT}?${params.toString()}`;
 
+  if (dogsMap.has(url)) {
+    const dogObject = dogsMap.get(url);
+    const dogs = dogObject.dogs;
+    const total = dogObject.total;
+
+    return { dogs, total };
+  }
+
   try {
     const { resultIds, total } = await fetchApi<{
       resultIds: string[];
@@ -62,6 +72,8 @@ export const fetchDogs = async ({
     });
     const dogs =
       resultIds.length > 0 ? await getDogDetailsBasedOnId(resultIds) : [];
+
+    dogsMap.set(url, { dogs: dogs, total: total });
     return { dogs, total };
   } catch (error) {
     console.error("Error fetching dogs:", error);
